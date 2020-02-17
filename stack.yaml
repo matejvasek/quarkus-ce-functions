@@ -1,0 +1,10 @@
+name: Quarkus Functions
+version: 0.0.1
+description: Quarkus function runtime for cloud event services
+license: Apache-2.0
+language: java
+maintainers:
+  - name: Lance Ball
+    email: lball@redhat.com
+    github-id: lance
+default-template: default
