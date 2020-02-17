@@ -1,8 +1,10 @@
-# Quarkus Stack
+# Quarkus Cloud Functions
 
-The Quarkus stack is designed to provide a foundation for building and running Java applications on Quarkus with Appsody.
+NB: This stack depends on a Quarkus function framework that is still a work in progress. Until that integration happens, this stack provides similar functionality to Appsody's `experimental/quarkus` stack.
 
-This stack is based on the `Quarkus 1.0.0.Final` runtime. It allows you to develop new or existing Java applications that run on Quarkus and can be turned into a native executable for a low memory footprint and near instantaneous (< 10ms) start times.
+The Quarkus Cloud Functions stack is designed to provide a foundation for building and running Java functions on Quarkus, invoked with Cloud Events using Knative.
+
+This stack is based on the `Quarkus 1.0.0.Final` runtime. It allows you to write Java functions that run on Quarkus and can be turned into a native executable for a low memory footprint and near instantaneous (< 10ms) start times.
 
 ## What is Quarkus?
 
@@ -16,18 +18,24 @@ Templates are used to create your local project and start your development. When
 
 ## Getting Started
 
+To use this stack, you'll need to work with it locally. That means, cloning this repository and running a few commands before you can get started.
+
+```sh
+    git clone https://github.com/openshift-cloud-functions/quarkus-ce-functions.git
+    cd quarkus-ce-functions
+    make
+```
+
+Once you have done this, the stack image will be available in the docker repository on your local machine. Then, follow the instructions below.
+
 1. Create a new folder in your local directory and initialize it using the Appsody CLI, e.g.:
 
     ```bash
     mkdir my-project
     cd my-project
-    appsody init experimental/quarkus
+    appsody init dev.local/quarkus-functions
     ```
     This will initialize a Quarkus project using the default template.
-
-    **NOTE:** If you encounter the following error, [configure the experimental repo](#Configuring-Experimental-Repo):
-
-    **`[Error] Repository experimental is not in configured list of repositories`**.
 
 1. After your project has been initialized you can then run your application using the following command:
 
@@ -72,16 +80,6 @@ You can verify that this worked by visiting http://0.0.0.0:8080/ and observing t
 ## Known Issue:
 
 - Currently there is no configuration or documentation on `appsody debug`.
-
-## Configuring Experimental Repo
-
-Upgrade your CLI to the latest version and add the experimental repo:
-
-1. `brew upgrade appsody` or for other platforms visit the [upgrading appsody section](https://appsody.dev/docs/getting-started/installation).
-
-2. `appsody repo add experimental https://github.com/appsody/stacks/releases/latest/download/experimental-index.yaml`
-
-You should now be able to [initialise your application](#Getting-Started).
 
 ## License
 
