@@ -1,5 +1,5 @@
 # Dockerfile for building the stack
-FROM quay.io/quarkus/centos-quarkus-maven:19.2.1
+FROM quay.io/mvasek/funqy-base:latest
 
 COPY ./LICENSE /licenses/
 COPY ./project /project
