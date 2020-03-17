@@ -1,5 +1,5 @@
 # Dockerfile for building the stack
-FROM quay.io/mvasek/funqy-base
+FROM quay.io/mvasek/funqy-base:20200317
 
 COPY ./LICENSE /licenses/
 COPY ./project /project
