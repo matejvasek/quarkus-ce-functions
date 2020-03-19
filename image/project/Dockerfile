@@ -1,5 +1,5 @@
 ## Stage 1 : build with maven builder image with native capabilities
-FROM quay.io/mvasek/funqy-base:latest AS builder
+FROM quay.io/mvasek/funqy-base:20200319 AS builder
 
 COPY . /project
 RUN cd /project && mvn -B install dependency:go-offline -DskipTests
