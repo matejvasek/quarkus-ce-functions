@@ -7,4 +7,7 @@ maintainers:
   - name: Lance Ball
     email: lball@redhat.com
     github-id: lance
+  - name: Matej Vasek
+    email: mvasek@redhat.com
+    github-id: matejvasek
 default-template: default
