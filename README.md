@@ -1,6 +1,6 @@
 # Quarkus Cloud Functions
 
-NB: This stack depends on a Quarkus function framework that is still a work in progress. Until that integration happens, this stack provides similar functionality to Appsody's `experimental/quarkus` stack.
+[![CircleCI](https://circleci.com/gh/openshift-cloud-functions/quarkus-ce-functions.svg?style=svg)](https://circleci.com/gh/openshift-cloud-functions/quarkus-ce-functions)
 
 The Quarkus Cloud Functions stack is designed to provide a foundation for building and running Java functions on Quarkus, invoked with Cloud Events using Knative.
 
@@ -14,7 +14,7 @@ See: https://quarkus.io/
 
 ## Templates
 
-Templates are used to create your local project and start your development. When initializing your project you will be provided with the default template project. This template provides a simple Java application with a JAX-RS "Hello World!" REST API example and a simple HTML welcome page.
+Templates are used to create your local project and start your development. When initializing your project you will be provided with the default template project. This template provides a simple Quarkus application with a "Hello World!" API example.
 
 ## Getting Started
 
