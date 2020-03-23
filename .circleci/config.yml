@@ -1,0 +1,14 @@
+version: 2
+general:
+  branches:
+    only:
+      # - master
+      - circleci
+jobs:
+ build:
+   machine: # Because appsody mounts local directories into running test container
+    image: ubuntu-1604:201903-01
+   steps:
+     - checkout
+     - run: ./.circleci/install_appsody.sh
+     - run: make test
