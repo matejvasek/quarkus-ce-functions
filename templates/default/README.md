@@ -21,7 +21,7 @@ You can test those functions by using `curl` cmd utility.
 Parameters for `curl` can be found at [Cloud Event emulation](#cloud-event-emulation).
 
 ## Local execution
-Make sure that `maven 3.6` and `Java 11 SDK` is installed.
+Make sure that `maven 3.6.2` and `Java 11 SDK` is installed.
 
 To start server locally run `mvn quarkus:dev`.
 The command starts http server and automatically watches for changes of source code.
