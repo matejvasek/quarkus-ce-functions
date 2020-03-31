@@ -24,7 +24,7 @@ COPY --chown=quarkus:quarkus ./user-app/src ./src
 RUN mvn -B package -Pnative
 
 ## Stage 2 : create the docker final image
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1
+FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 WORKDIR /work/
 COPY --from=builder /project/user-app/target/*-runner /work/application
 
