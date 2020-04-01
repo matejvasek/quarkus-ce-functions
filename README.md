@@ -1,6 +1,6 @@
 # Quarkus Cloud Functions
 
-[![CircleCI](https://circleci.com/gh/openshift-cloud-functions/quarkus-ce-functions.svg?style=svg)](https://circleci.com/gh/openshift-cloud-functions/quarkus-ce-functions)
+[![CircleCI](https://circleci.com/gh/boson-project/quarkus-ce-functions.svg?style=svg)](https://circleci.com/gh/boson-project/quarkus-ce-functions)
 
 The Quarkus Cloud Functions stack is designed to provide a foundation for building and running Java functions on Quarkus, invoked with Cloud Events using Knative.
 
@@ -21,7 +21,7 @@ Templates are used to create your local project and start your development. When
 To use this stack, you'll need to work with it locally. That means, cloning this repository and running a few commands before you can get started.
 
 ```sh
-    git clone https://github.com/openshift-cloud-functions/quarkus-ce-functions.git
+    git clone https://github.com/boson-project/quarkus-ce-functions.git
     cd quarkus-ce-functions
     make
 ```
