@@ -53,7 +53,7 @@ hub release create -a ${template_archive} -m "${tag}" ${tag}
 success_or_bail $? "Failed to release templates"
 printf "${green}Released ${tag} templates${nc}\n"
 
-appsody stack add-to-repo boson --release-url https://github.com/openshift-cloud-functions/quarkus-ce-functions/releases/latest/download/
+appsody stack add-to-repo boson --release-url https://github.com/boson-project/quarkus-ce-functions/releases/latest/download/
 success_or_bail $? "Failed to update stack repo index"
 printf "${green}Updated stacks repository index locally${nc}\n"
 
@@ -73,5 +73,5 @@ success_or_bail $? "Can't copy index ${repo_index}"
 
 printf "\n${orange}Congratulations, you have successfully published ${patch}."
 printf "\n${orange}To make this update publicly available, release an updated boson stacks repository."
-printf "\n${orange}  (see https://github.com/openshift-cloud-functions/stacks/#releasing)."
+printf "\n${orange}  (see https://github.com/boson-project/stacks/#releasing)."
 printf "\n\n${green}Now push the updates and tags:\n\n    ${purple}'git push origin release --follow-tags'${nc}\n"
