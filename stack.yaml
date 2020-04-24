@@ -11,3 +11,5 @@ maintainers:
     email: mvasek@redhat.com
     github-id: matejvasek
 default-template: default
+requirements:
+   appsody-version: ">= 0.6.0"
