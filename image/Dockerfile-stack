@@ -1,19 +1,21 @@
 # Dockerfile for building the stack
 FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java11
 
-COPY ./LICENSE /licenses/
-COPY ./project /project
-COPY ./config /config
+ENV APPSODY_PROJECT_DIR=/proj
 
-WORKDIR /project
+COPY --chown=quarkus:quarkus ./LICENSE /licenses/
+COPY --chown=quarkus:quarkus ./project /proj
+COPY --chown=quarkus:quarkus ./config /config
+
+WORKDIR /proj
 
 RUN mvn -N io.takari:maven:wrapper -Dmaven=$(mvn help:evaluate -Dexpression=maven.version -q -DforceStdout)
 RUN mvn -B install dependency:go-offline -DskipTests
 
-ENV APPSODY_PROJECT_DIR=/project
-RUN mkdir -p /project/user-app/target
-ENV APPSODY_MOUNTS=".:/project/user-app"
-ENV APPSODY_DEPS="/project/user-app/target;/home/quarkus/.m2"
+ENV APPSODY_proj_DIR=/proj
+RUN mkdir -p /proj/user-app/target
+ENV APPSODY_MOUNTS=".:/proj/user-app"
+ENV APPSODY_DEPS="/proj/user-app/target;/home/quarkus/.m2"
 
 ENV APPSODY_RUN="./mvnw -B compile quarkus:dev"
 ENV APPSODY_RUN_ON_CHANGE=""
@@ -27,7 +29,7 @@ ENV APPSODY_TEST="./mvnw -B test"
 ENV APPSODY_TEST_ON_CHANGE="./mvnw -B test"
 ENV APPSODY_TEST_KILL=true
 
-WORKDIR /project/user-app
+WORKDIR /proj/user-app
 
 ENV PORT=8080
 
