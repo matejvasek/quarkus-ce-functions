@@ -3,15 +3,12 @@ FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java11 AS builder
 
 USER root
 RUN mkdir -p /project/user-app
-COPY ./quarkus-mvn.tar.gz /project
 COPY ./pom.xml /project
 RUN chown -R quarkus /project
 USER quarkus
 
 WORKDIR /project
 
-RUN mkdir -p /home/quarkus/.m2/repository/io
-RUN tar fx /project/quarkus-mvn.tar.gz -C /home/quarkus/.m2/repository/io
 RUN mvn -B install dependency:go-offline -DskipTests
 
 # Install user-app dependencies
