@@ -1,5 +1,5 @@
 name: Quarkus Functions
-version: 0.0.1
+version: 0.0.2
 description: Quarkus function runtime for cloud event services
 license: Apache-2.0
 language: java
@@ -11,3 +11,5 @@ maintainers:
     email: mvasek@redhat.com
     github-id: matejvasek
 default-template: default
+requirements:
+   appsody-version: ">= 0.6.0"

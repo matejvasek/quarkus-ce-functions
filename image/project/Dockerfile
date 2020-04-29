@@ -2,17 +2,17 @@
 FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java11 AS builder
 
 USER root
-RUN mkdir -p /project/user-app
-COPY ./pom.xml /project
-RUN chown -R quarkus /project
+RUN mkdir -p /proj/user-app
+COPY ./pom.xml /proj
+RUN chown -R quarkus /proj
 USER quarkus
 
-WORKDIR /project
+WORKDIR /proj
 
 RUN mvn -B install dependency:go-offline -DskipTests
 
 # Install user-app dependencies
-WORKDIR /project/user-app
+WORKDIR /proj/user-app
 
 COPY --chown=quarkus:quarkus ./user-app/pom.xml ./pom.xml
 RUN mvn -B compile dependency:go-offline
@@ -23,7 +23,7 @@ RUN mvn -B package -Pnative
 ## Stage 2 : create the docker final image
 FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 WORKDIR /work/
-COPY --from=builder /project/user-app/target/*-runner /work/application
+COPY --from=builder /proj/user-app/target/*-runner /work/application
 
 # set up permissions for user `1001`
 RUN chmod 775 /work /work/application \
