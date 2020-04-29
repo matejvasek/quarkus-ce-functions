@@ -1,5 +1,5 @@
 ## Stage 1 : build with maven builder image with native capabilities
-FROM quay.io/quarkus/centos-quarkus-maven:19.3.1-java11 AS builder
+FROM quay.io/boson/centos-quarkus-maven:19.3.1-java11-20200426 AS builder
 
 USER root
 RUN mkdir -p /proj/user-app
