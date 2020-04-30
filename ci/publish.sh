@@ -6,7 +6,7 @@ script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 base_dir=$(cd "${script_dir}/.." && pwd)
 build_dir="${base_dir}/build"
 
-patch=$(grep version ${base_dir}/stack.yaml | tr -d 'version: ')
+patch=$(grep -P "^version:\s*\d+\.\d+\.\d+\s*$" ${base_dir}/stack.yaml | tr -d 'version: ')
 major=$(echo ${patch} | cut -d . -f 1)
 minor=${major}.$(echo ${patch} | cut -d . -f 2)
 tag="v${patch}"
