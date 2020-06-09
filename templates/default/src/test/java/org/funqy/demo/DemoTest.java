@@ -34,8 +34,8 @@ public class DemoTest {
                 .then().statusCode(200)
                 .header("ce-id", notNullValue())
                 .header("ce-specversion", equalTo("1.0"))
-                .header("ce-source", equalTo("dev.knative.greet"))
-                .header("ce-type", equalTo("greet"))
+                .header("ce-source", equalTo("greet"))
+                .header("ce-type", equalTo("greet.output"))
                 .body("name", equalTo("Bill"))
                 .body("message", equalTo("Hello Bill!"));
     }
@@ -57,8 +57,8 @@ public class DemoTest {
                 .defaultParser(Parser.JSON)
                 .body("id", notNullValue())
                 .body("specversion", equalTo("1.0"))
-                .body("type", equalTo("greet"))
-                .body("source", equalTo("dev.knative.greet"))
+                .body("type", equalTo("greet.output"))
+                .body("source", equalTo("greet"))
                 .body("datacontenttype", equalTo("application/json"))
                 .body("data.name", equalTo("Bill"))
                 .body("data.message", equalTo("Hello Bill!"));
